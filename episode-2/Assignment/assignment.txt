@@ -1,0 +1,73 @@
+1)   What is NPM?
+=>  NPM is a package manager when you want to have packages in your project that 
+    is when you need a package manager.
+
+2) What is Parcel/Webpack? Why do you need it?
+=>  Parcel/Webpack is Bundler that is they make your code production ready(i.e. make 
+    your code run faster) by eliminating multiple time consuming tasks such as console.logs, comments, 
+    extra spaces and others.
+
+3) What is '.parcel-cache'?
+=>  It saves the previous changes made to your code and make it run faster by only 
+    making changes on the changed code this is the reason why each time you execute 
+    your production code it executes comparetively faster each time.
+
+4) What is 'npx'?
+=>  "npx" is a command to execute packages using npm.
+    ex: npx parcel index.html
+
+5) What is diffrence bw 'dependencies' & 'devDependencies'?
+=>  devDependencies are used only during development environment but 
+    normal dependencies are used during production or testing environment.
+
+6) What is Tree shaking?
+=>  It is a technique used while writing an optimzed code which removes all the 
+    unused code.
+
+7) What is HMR?
+=>  Bundler such as Parcel automatically rebuilds your app after a change in the 
+    code(known as hot reloading) but in some cases it performs HMR. HMR improves DX 
+    by updating the module automatically without the need of reloading the page 
+    and can also retain the state of the app.
+
+8) List down your favorite 5 superpowers of Parcel and 
+    describe any 3 of them in your own words. 
+=>  Features of Parcel are:
+
+        * Tree Shaking: Removing unused code.
+        * HMR: rebuilding app without the need of manual reloading.
+        * Caching while development: parcel-cache file maintains cache 
+                                        which reduces the build time.
+        * Image optimization
+        * Code minification: minifies the code
+
+9) What is .gitignore? What should we add and not add into it?
+=> gitignore file contains the files which shouldn't go into the version control 
+    systems.
+
+    All the files which could be regenerated shouldn't go into the version control 
+    hence should be put in .gitignore file such as node_modules, parcel-cache & dist.
+
+10) What is the difference between package.json and package-lock.json?
+=>  package.json holds the approximate version of the dependencies with ^ or ~ sign
+    but package-lock.json holds the exact version of the dependency and locks it
+    also contains some other details of the dependency.
+
+11) Why should I not modify package-lock.json?
+=>  package-lock.json has the details regarding all the dependencies and 
+    there versions deleting it may cause dependencies issues in production environment.
+
+12) What is node_modules ? Is it a good idea to push that on git?
+=>  node_modules are the dependencies installed from npm and it contains all the
+    other dependencies which the current dependency is dependent on.
+
+        node_modules could be regenerated from package.json & package-lock.json
+    so no need to put it on to git.
+
+13) What is the dist folder?
+=>  dist folder contains the minified production code.
+
+14) What is browserslist?
+=> It is a package used to manage the availability of your app in diffrent browsers.
+    Check "https://browserslist.dev/?q=bGFzdCAyIHZlcnNpb25z"
+
