@@ -1,0 +1,56 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	min-height: 100%;
+}
+
+.header {
+	height: 100px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: aqua;
+}
+
+.logo,
+.userLogo {
+	height: 50px;
+	width: 50px;
+	margin: 50px;
+	cursor: pointer;
+	transition: scale 0.4s;
+}
+.logo:hover {
+	scale: 1.2;
+}
+.userLogo:hover {
+	scale: 1.2;
+}
+
+.searchBtn {
+	padding: 15px;
+	cursor: pointer;
+	font-size: 1.1rem;
+	transition: background-color 1s;
+}
+.searchBtn:hover {
+	background-color: darkblue;
+	color: white;
+}
+
+.search {
+	width: 500px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.search > input {
+	width: 300px;
+	padding: 15px;
+	font-size: 1.1rem;
+	outline: none;
+}
