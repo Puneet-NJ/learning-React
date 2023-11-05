@@ -61,11 +61,9 @@ body {
 .restaurent-card {
 	padding: 15px;
 	width: 250px;
-	/* min-height: max-content; */
 	text-align: center;
 	margin: 10px;
 	box-sizing: border-box;
-	/* transition: border 1s; */
 	border-radius: 10px;
 }
 .restaurent-card > h3,
@@ -77,10 +75,6 @@ body {
 	border: 1px solid rgb(232, 232, 232);
 	cursor: pointer;
 	background-color: white;
-	/* background-color: rgba(0, 0, 0, 0.8);
-	color: white; */
-	/* background-color: rgba(245, 241, 4, 0.5); */
-	/* scale: 1.05; */
 	box-shadow: rgba(28, 28, 28, 0.12) 0px 0.4rem 1.8rem;
 }
 .restaurent-img {

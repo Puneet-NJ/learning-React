@@ -882,7 +882,7 @@ const Body = () => (
 			{/* forEach instaead of map wouldn't work, why?
              bcoz => i have written jsx inside js, so babel wouldn't recignise until it's returned */}
 			{restaurents.map((restaurent) => (
-				<RestaurentCard resName={restaurent} />
+				<RestaurentCard key={restaurent.info.id} resName={restaurent} />
 			))}
 		</div>
 	</div>
