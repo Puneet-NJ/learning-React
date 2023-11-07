@@ -1,0 +1,105 @@
+1)  Is JSX mandatory for React?
+=>  No, JSX is not mandotary to use react, you can also do React.createElement 
+    but using it to create nested markup would be tough and reduces readability
+    .Hence, JSX is preferred over React.createElement.
+
+2)  Is ES6 mandatory for React?
+=> It is not mandotary but is highly recommended as newer projects include ES6
+    features such as Classes, Arrow functions, Variables(let, const) etc.
+    ES6(ECMAScript6) was created to standardize js in 2015.
+
+3)  {TitleComponent} vs {<TitleComponent/>} vs 
+    {<TitleComponent></TitleComponent>} in JSX.
+=>  *) {TitleComponent} is a React element
+    *) {<TitleComponent/>} is a React component i.e. a function returning a JSX.
+    *) {<TitleComponent></TitleComponent>} is also a React component, but the 
+        difference bw {<TitleComponent/>} vs {<TitleComponent></TitleComponent>}
+        is {<TitleComponent></TitleComponent>} can have child components aswell
+
+        EX:     <TitleComponent>
+                    <FirstChildComponent />
+                    <SecondChildComponent />
+                    <ThirdChildComponent />
+                </TitleComponent>
+
+4)  How can I write comments in JSX?
+=> {/* Inside this goes a JSX comment */}
+
+5)  What is <React.Fragment></React.Fragment> and <></>?
+=>  Wrap elements in <Fragment></Fragment> wherein you need only one element, this 
+    will have no effect on DOM as it is equivalent to having all the children elements
+    and not grouped.
+
+    The <></> is shorthand for <Fragment></Fragment>.
+
+    But when want to have a key for Fragment you can't use shorthand instead 
+    <Fragment></Fragment> works.
+
+    Ex:     return (
+                <React.Fragment>
+                    <Header />
+                    <Navigation />
+                    <Main />
+                    <Footer />
+                </React.Fragment>
+            );
+
+        return (
+                <>
+                    <Header />
+                    <Navigation />
+                    <Main />
+                    <Footer />
+                </>
+            );
+
+6) What is Reconciliation in React?
+=> React Reconciliation is process of React updating the Browser DOM and this 
+    updating is pretty fast.
+
+    How does Reconciliation work?
+    It maintains a virtual copy of DOM known as Virtual DOM and it also maintains
+    an unupdated copy of DOM, whenever a change is made it compares both using 
+    the "diffing" algorithm and a new virtual DOM is created and is used to update
+    the original DOM with minimum number of changes possible.
+
+        Refer: "https://www.geeksforgeeks.org/reactjs-reconciliation/";
+
+7) What is Virtual DOM?
+=>  Virtaul DOM is a lightweight copy of the actual DOM. So for every object in actual
+    DOM there will be an object in virtual DOM. It is exactly the same,
+    but it does not have the power to directly change the layout of the document. 
+
+    Updating DOM is slow but updating virtual DOM is fast hence React uses it.
+    So each time there is change in state Virtaul DOM updated first instead of 
+    real DOM.
+
+    Refer: "https://www.geeksforgeeks.org/reactjs-virtual-dom/";
+
+8)  What is React Fiber?
+=>  
+
+9)  Why do we need keys in React? When?
+=>  Keys are used to identify each component or element in a list while rendering
+    because it helps in keeping track of what element is changed, updated 
+    or deleted as each of them have unique identity and hence, helps in 
+    performance boosting.
+
+    Whenever we are looping over a component we use keys.
+
+10) Can we use index as keys in React?
+=>  We can use but is not a good practice because if any element gets added in the 
+    middle of the list the purpose of maintaing keys would be defeated as it would 
+    hamper our performance.
+
+    No key <<< index as key <<< unique id as a key
+
+11) What is props in React? Ways to.
+=>  props stand for properties. props are used to pass arguement to component which 
+    makes our app dynamic.
+
+    props are objects. Hence you can destructure them as using them directly would
+    reduce the readability.
+
+12) What is Config Driven UI?
+=>  It means our app is driven by config/data which comes from backend.
