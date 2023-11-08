@@ -1,4 +1,4 @@
-Restaurent app design
+1. Restaurent app design
 
 /\*\*\*\*
 
@@ -21,3 +21,12 @@ Restaurent app design
 -      -Copyright
 -      -Links
 - \*/
+
+2. Two types of exports:
+   => default
+   => named
+
+3. Using normal js variables only data gets updated not ui
+   hence use react hooks(updates both).
+
+4. Whenever a state variable is updated react rerenders the component
