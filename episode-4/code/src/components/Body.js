@@ -48,19 +48,23 @@ const Body = () => {
 	// React hooks: Local state variable
 	// Whenever a state variable is updated react rerenders the component
 	const [restaurentList, setRestaurents] = useState(restaurents);
-
+	const [searchRes, setSearchRes] = useState("");
 	// I can't update my state variables directly, I should use setVariable method
 
 	return (
 		<div id="body">
 			<div className="search">
+				{/* Adding search functionality into it? 
+					"https://www.youtube.com/watch?v=mZvKPtH9Fzo"
+				*/}
 				<form>
 					<input
 						type="text"
 						className="search-bar"
 						placeholder="Enter Restaurent Name"
+						onChange={(e) => setSearchRes(e.target.value)}
 					></input>
-					<button type="submit">Search</button>
+					{/* <button>Search</button> */}
 				</form>
 				<button
 					className="sort-res"
@@ -82,9 +86,21 @@ const Body = () => {
 				{/* How to add dynamic data to our componenets? -> props */}
 				{/* forEach instaead of map wouldn't work, why?
              bcoz => i have written jsx inside js, so babel wouldn't recignise until it's returned */}
-				{restaurentList.map((restaurent) => (
-					<RestaurentCard key={restaurent.info.id} resName={restaurent} />
-				))}
+				{restaurentList
+					.filter((restaurent) => {
+						if (searchRes == "") {
+							return restaurent;
+						} else if (
+							restaurent.info.name
+								.toLowerCase()
+								.includes(searchRes.toLowerCase())
+						) {
+							return restaurent;
+						}
+					})
+					.map((restaurent) => (
+						<RestaurentCard key={restaurent.info.id} resName={restaurent} />
+					))}
 			</div>
 		</div>
 	);

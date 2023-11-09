@@ -29,4 +29,7 @@
 3. Using normal js variables only data gets updated not ui
    hence use react hooks(updates both).
 
+   What is react hook? A normal js utility function.
+   eg: useState() gives access to state variables
+
 4. Whenever a state variable is updated react rerenders the component
