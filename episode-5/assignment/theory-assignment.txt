@@ -1,0 +1,32 @@
+1) What is the difference between Named export, Default export, and * as export?
+=>  Import and export's have been introduced to js in ES6. It provides 2 ways to
+    export a module from a file default and named.
+
+    Named export: You can have multiple of 'em. In import you have to wrap the content
+    inside {}. The import and export names should match.
+
+    Default export: You can have only 1. No need to wrap inside any brackets. No 
+    need for import and export names to match either.
+
+    * export: Used when there are multiple exports and when import with * they are 
+    wrapped inside an object 
+
+            import * as objectName from "path";
+
+2)  What is the importance of config.js file?
+=>  config file is used to keep all the hardcoded data which increses the 
+    readability.
+
+3)  What are React Hooks?
+=>  React hooks are normal utility js functions which provide some special functions
+    like useState() provides local state variables which can keep up with 
+    state changes.
+
+4)  Why do we need useState Hook?
+=>  When value of local variables change react doesn't know that variable has
+    changed its value and hence it doesn't re-render but in-case of useState it 
+    keeps a track of state of the variable and hence it re-renders when the state 
+    of the variable changes.
+
+
+Reference: "https://github.com/chetannada/Namaste-React/blob/main/Chapter%2005%20-%20Let's%20get%20Hooked!/Theory/Session%205%20Theory.md#q-why-do-we-need-usestate-hook";
