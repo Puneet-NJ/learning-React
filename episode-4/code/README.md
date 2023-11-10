@@ -33,3 +33,9 @@
    eg: useState() gives access to state variables
 
 4. Whenever a state variable is updated react rerenders the component
+
+5. There are 2 ways to render data onto our app
+   ==> Reload -> callAPI -> Render
+   ==> Reload -> Render -> callAPI -> Render
+
+   The 2nd way is preferred and how do I do that? useEffect hook.
