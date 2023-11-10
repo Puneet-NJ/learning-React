@@ -37,7 +37,8 @@ const Body = () => {
 		fetchData();
 	}, []);
 
-	if (restaurentList.length == 0) {
+	// Conditinal rendering
+	if (restaurentList.length === 0) {
 		return <Shimmer />;
 	}
 	return (
@@ -77,7 +78,7 @@ const Body = () => {
              bcoz => i have written jsx inside js, so babel wouldn't recignise until it's returned */}
 				{restaurentList
 					.filter((restaurent) => {
-						if (searchRes == "") {
+						if (searchRes === "") {
 							return restaurent;
 						} else if (
 							restaurent?.info?.name

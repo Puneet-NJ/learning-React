@@ -120,3 +120,9 @@ h4 {
 	width: 200px;
 	background-color: #f0f0f0;
 }
+
+.login {
+	font-size: 1.2rem;
+	padding: 15px;
+	cursor: pointer;
+}
