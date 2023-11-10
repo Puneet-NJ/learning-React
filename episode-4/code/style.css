@@ -102,3 +102,21 @@ h4 {
 	font-size: 1.2rem;
 	margin: 20px auto;
 }
+
+.gray {
+	background-color: gray;
+}
+
+.shimmer-body {
+	display: flex;
+	flex-wrap: wrap;
+	width: 80%;
+	margin: 0 auto;
+	margin-top: 200px;
+}
+
+.shimmer-card {
+	height: 400px;
+	width: 200px;
+	background-color: #f0f0f0;
+}
