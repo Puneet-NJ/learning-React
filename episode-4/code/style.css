@@ -41,18 +41,18 @@ body {
 	margin: 20px;
 }
 
-.search > form {
+.search {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
-.search > form > input {
+.search > input {
 	width: 300px;
 	padding: 15px;
 	font-size: 18px;
 	outline: none;
 }
-.search > form > button {
+.search > button {
 	padding: 15px;
 	font-size: 18px;
 	cursor: pointer;

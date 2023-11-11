@@ -9,23 +9,28 @@ const Body = () => {
 	// React hooks: Local state variable
 	// Whenever a state variable is updated react rerenders the component
 	const [restaurentList, setRestaurentList] = useState([]);
-	const [searchRes, setSearchRes] = useState("");
 	// I can't update my state variables directly, I should use setVariable method
+	const [searchRes2, setSearchRes2] = useState("");
+	const [filteredRes, setFilteredRes] = useState([]);
 
 	const fetchData = async () => {
 		try {
 			const api = await fetch(
-				"https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.3319776&lng=76.8194767&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+				"https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
 			);
 			const json = await api.json();
 
 			if (
-				!json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+				!json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
 					?.restaurants
 			)
 				throw new Error("API Link Changed");
 			setRestaurentList(
-				json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+				json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+					?.restaurants
+			);
+			setFilteredRes(
+				json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
 					?.restaurants
 			);
 		} catch (e) {
@@ -47,15 +52,26 @@ const Body = () => {
 				{/* Adding search functionality into it? 
 					"https://www.youtube.com/watch?v=mZvKPtH9Fzo"
 				*/}
-				<form>
-					<input
-						type="text"
-						className="search-bar"
-						placeholder="Enter Restaurent Name"
-						onChange={(e) => setSearchRes(e.target.value)}
-					></input>
-					{/* <button>Search</button> */}
-				</form>
+				{/* <form> */}
+				<input
+					type="text"
+					className="search-name"
+					placeholder="Enter resraurent"
+					onChange={(e) => setSearchRes2(e.target.value)}
+				></input>
+				<button
+					onClick={() => {
+						const newRes = restaurentList.filter((res) => {
+							return res.info.name
+								.toLowerCase()
+								.includes(searchRes2.toLowerCase());
+						});
+						setFilteredRes(newRes);
+					}}
+				>
+					Search
+				</button>
+				{/* </form> */}
 				<button
 					className="sort-res"
 					onClick={() => {
@@ -76,21 +92,9 @@ const Body = () => {
 				{/* How to add dynamic data to our componenets? -> props */}
 				{/* forEach instaead of map wouldn't work, why?
              bcoz => i have written jsx inside js, so babel wouldn't recignise until it's returned */}
-				{restaurentList
-					.filter((restaurent) => {
-						if (searchRes === "") {
-							return restaurent;
-						} else if (
-							restaurent?.info?.name
-								.toLowerCase()
-								.includes(searchRes?.toLowerCase())
-						) {
-							return restaurent;
-						}
-					})
-					.map((restaurent) => (
-						<RestaurentCard key={restaurent?.info?.id} resName={restaurent} />
-					))}
+				{filteredRes.map((restaurent) => (
+					<RestaurentCard key={restaurent?.info?.id} resName={restaurent} />
+				))}
 			</div>
 		</div>
 	);
