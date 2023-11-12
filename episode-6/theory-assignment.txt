@@ -1,0 +1,70 @@
+1)  What is Microservice?
+=>  Microservice architecture is a way of software development wherein 
+    tasks/domains(such as UI, backend, db's) are built & worked upon independently 
+    and connected through API's. This type of architecture helps deliver software 
+    fast and also working with them is also quite easy.
+
+2)  What is Monolith architecture?
+=>  In Monolith architecture the whole software is built as a unit with one codebase.
+    To make a change in software in these type of we basically have to modify the 
+    whole codebase then build and deploy again this results in time delays in 
+    delivery.
+    
+3)  What is the difference between Monolith and Microservice?
+=>  Monolith architecture: It is built to work as a single unit and hence if any
+    spike in demand will have to scale the whole project and as the codebase grows 
+    it becomes very hard to maintain and scale them.
+
+    Microservice architecture:  Here each unit is treated and worked seperately so 
+    any spike in demand you could only scale that particular part of project and
+    hence maintaining one is easy.
+
+4)  Why do we need a useEffect Hook?
+=>  Whenever we want some initial render and after we recieve data from API we want
+    render again i.e. whenever we want a function to run after the component is 
+    rendered we use useEffect Hook.
+
+5)  What is Optional Chaining?
+=>  Optional Chaining(?.) operator helps in calling property of the object. If incase 
+    the property that you are trying to access is null or undefined then instead of
+    throwing error it returns undefined, this really helps in preventing your app
+    from crashing.
+
+6)  What is Shimmer UI?
+=>  Shimmer UI is the latest practice in the market wherein before the actual render
+    of UI some basic template of UI is rendered which betters the user experience.
+
+7)  What is the difference between JS expression and JS statement?
+=>  JS expression returns some value.
+    ex: *) 1 + 3; // returns 4
+        *) console.log("Hi"); // logs "Hi"
+        *) str.toLowerCase(); // returns lowerCase
+
+    JS statement doesnot return anything.
+    ex: *) let a;
+        *) if() {};
+
+    JS expression in JSX: {JS expression}
+    JS statement in JSX: {(JS statement)}
+
+8)  What is Conditional Rendering? explain with a code example.
+=>  Rendering a component based on some condition.
+
+    if(restaurantList.length === 0)
+        return <Shimmer /> 
+    
+9)  What is CORS?
+=>  Cross Origin Resourse Sharing(CORS) is a HTTP based resourse sharing mechanism 
+    which defines policy for diffrent resourses of diffrent domain, port or header 
+    to communicate with each other.
+
+10) What is async and await?
+=>  async/await is a syntactic sugar for writting promises.
+
+    The keyword async says that our function is an async function.
+    The keyword await says to until that particular line(promise) is executed(settled).
+
+11) What is the use of const json = await data.json(); in getRestaurants()?
+=>  the data object has the data from API and which is usually not in readable form
+    which is converted into json using data.json() method which returns a promise 
+    hence the await keyword is attached to it.
