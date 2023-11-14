@@ -2,6 +2,7 @@ import RestaurentCard from "./RestaurentCard";
 import restaurents from "../utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 // Feature: Want to sort restaurent by rating. eg: 4* > restaurents
 
@@ -93,7 +94,12 @@ const Body = () => {
 				{/* forEach instaead of map wouldn't work, why?
              bcoz => i have written jsx inside js, so babel wouldn't recignise until it's returned */}
 				{filteredRes.map((restaurent) => (
-					<RestaurentCard key={restaurent?.info?.id} resName={restaurent} />
+					<Link
+						key={restaurent?.info?.id}
+						to={"/restaurants/" + restaurent?.info?.id}
+					>
+						<RestaurentCard resName={restaurent} />
+					</Link>
 				))}
 			</div>
 		</div>

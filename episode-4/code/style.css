@@ -1,12 +1,13 @@
-* {
+/* * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-}
+} */
 
 body {
 	font-family: Okra, Helvetica, sans-serif;
 	background-color: ghostwhite;
+	margin: 0;
 }
 
 #header {
@@ -15,6 +16,9 @@ body {
 	align-items: center;
 	max-height: 150px;
 	background-color: rgb(242, 255, 0);
+	/* margin: 0;
+	padding: 0;
+	box-sizing: border-box; */
 }
 
 .logo {
