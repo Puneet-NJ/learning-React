@@ -83,4 +83,7 @@
 
    2types of routing: Server side, Client side
 
-   This is the reason why our react apps are a single page apps.
+   This is the reason why our react apps are a single page apps(Link tag is making
+   it SPA, experiment it).
+
+   In our React app sometimes we want to access the parameters of the current route in this case useParams hook comes into action.
