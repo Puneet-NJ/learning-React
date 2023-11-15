@@ -134,3 +134,12 @@ h4 {
 restaurent-card {
 	text-decoration: none;
 }
+
+.user-card {
+	border: 1px solid black;
+	margin: 20px;
+}
+.user-card > h1 {
+	color: brown;
+	text-decoration: underline;
+}
