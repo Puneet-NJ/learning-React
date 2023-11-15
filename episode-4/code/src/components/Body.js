@@ -22,16 +22,16 @@ const Body = () => {
 			const json = await api.json();
 
 			if (
-				!json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+				!json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
 					?.restaurants
 			)
 				throw new Error("API Link Changed");
 			setRestaurentList(
-				json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+				json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
 					?.restaurants
 			);
 			setFilteredRes(
-				json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+				json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
 					?.restaurants
 			);
 		} catch (e) {
