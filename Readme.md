@@ -1,1 +1,1 @@
-Hello everyone!! This is the me documenting my journey of learning React from Namaste React🚀
+Hello everyone!! This is me documenting my journey of learning React from Namaste React🚀
