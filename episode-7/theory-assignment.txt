@@ -1,0 +1,50 @@
+1)  What are various ways to add images into our App? Explain with code examples.
+=>  *)One way to add images into your project is directly importing it from web.
+
+    <img src="link-from-web"/>
+
+    *)Second way to add image into your website is adding the image into your project
+     and than using it.
+
+     <img src="image-from-project"/>
+
+    *)Third way is creating a utility folder in your project and adding image into 
+    utility folder and than using it. This is the best way.
+
+    <img src="image-from-utilsFolder"/>
+
+2)  What would happen if we do console.log(useState())?
+=>  If we do console.log(useState()), we get an array [undefined, function] 
+    where first item in an array is state is undefined and the second item in
+    an array is setState function is bound dispatchSetState.
+
+3)  How will useEffect behave if we don't add a dependency array?
+=>  Syntax of useEffect is:
+
+    useEffect(() => {}, []);
+    Case 1 : When the dependency array is not included in the arguments of useEffect() hook, the callback function will be executed every time the component is rendered and re-rendered.
+
+    useEffect(() => {
+        console.log("I run everytime this component rerenders")
+    });
+    Case 2 : When the dependency array is empty in the arguments of useEffect() hook, the callback function will be executed only one time during the initial render of the component.
+
+    useEffect(() => {
+        console.log("I Only run once (When the component gets mounted)")
+    }, []);
+    Case 3 : When the dependency array contains a condition, the callback function will be executed one time during the initial render of the component and also rerender if there is a change in the condition.
+
+    useEffect(() => {
+        console.log("I run every-time when my condition changed")
+    }, [condition]);
+
+4)  What is SPA?
+=>  Single Page Application is the website which loads data without reloading.
+
+5)  What is the difference between Client Side Routing and Server Side Routing?
+=>  In Server side routing whenever there is change in the URL a http request is
+    made to load a new page, which takes sometime.
+
+    In Client side routing whenever there is a change in the URL only the components 
+    get exchanged, hence it saves alot of time. All Single Page Applications 
+    uses client-side routing.
