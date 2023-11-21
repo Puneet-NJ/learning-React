@@ -5,26 +5,45 @@ class UserClass extends React.Component {
 		super(props);
 
 		this.state = {
-			count: 1,
-			count2: 2,
+			name: "ABC",
+			location: "Default",
 		};
-		console.log(this.props.name + " Inside constructor");
+		// console.log(this.props.name + " Inside constructor");
 	}
 
-	componentDidMount() {
-		console.log(this.props.name + " Inside componentDidMount");
+	async componentDidMount() {
+		// console.log(this.props.name + " Inside componentDidMount");
+
+		const data = await fetch("https://api.github.com/users/puneet-nj");
+		const json = await data.json();
+
+		console.log(json);
+		this.setState({
+			name: json.login,
+			location: json.location,
+			avatar_url: json.avatar_url,
+		});
 		// We see that this is executed after render so we can use it for API calls.💡
 	}
 
-	render() {
-		console.log(this.props.name + " Inside render");
+	componentDidUpdate() {
+		// This method will be called after componentDidMount.
+	}
 
-		const { name, location } = this.props;
-		let { count, count2 } = this.state;
+	componentWillUnmount() {
+		// This will be called after the UserClass component will be unmounted.
+		console.log("Component will unmount");
+	}
+
+	render() {
+		// console.log(this.props.name + " Inside render");
+
+		// const { name, location } = this.props;
+		let { name, location, avatar_url } = this.state;
 		return (
 			<div className="user-card">
-				<h1>Count: {count}</h1>
-				<button
+				{/* <h1>Count: {count}</h1> */}
+				{/* <button
 					onClick={() => {
 						this.setState({
 							count: this.state.count + 1,
@@ -32,7 +51,8 @@ class UserClass extends React.Component {
 					}}
 				>
 					Increment count
-				</button>
+				</button> */}
+				<img src={avatar_url}></img>
 				<h1>Class-based components</h1>
 				<h2>Author Name: {name}</h2>
 				<h3>Location: {location}</h3>

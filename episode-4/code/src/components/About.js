@@ -26,7 +26,6 @@ class About extends React.Component {
 
 					{/* <User name={"Puneet NJ"} location={"Karnataka"} /> */}
 					<UserClass name={"1"} location={"Karnataka"} />
-					<UserClass name={"2"} location={"Karnataka"} />
 				</div>
 			</>
 		);

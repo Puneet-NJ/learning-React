@@ -7,6 +7,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
+import Hi from "./components/Hi";
 
 // App component
 const App = () => (
@@ -32,6 +33,16 @@ const appRouter = createBrowserRouter([
 			{
 				path: "/about",
 				element: <About />,
+				children: [
+					{
+						path: "hi",
+						element: <Hi />,
+					},
+					{
+						path: "hi2",
+						element: <Hi />,
+					},
+				],
 			},
 			{
 				path: "/contact",
