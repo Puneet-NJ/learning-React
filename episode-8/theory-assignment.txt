@@ -1,0 +1,69 @@
+1)  How do you create Nested Routes react-router-dom configuration?
+=>  const router = createBrowserRouter([
+    {
+        path: "/",
+        element: <Parent />,
+        errorElement: <Error />,
+        children: [
+            {
+                path: "/path",
+                element: <Child />,
+                children: [ // nested routing for subchild
+                {
+                    path: "child",      // Don't use '/' because then react-router-dom will understand it it's the direct path
+                    element: <SubChild />,
+                }
+                ],
+            }
+        ],
+    }
+    ])
+
+    ALTHOUGH, THIS IS NOT WORKING BUT CHANGE IT WHENEVER YOU FIND SOMETHING.
+
+2)  Read about createHashRouter, createMemoryRouter from React Router docs.
+=>  createHashRouter is useful if you are unable to configure your web server to 
+    direct all traffic to your React Router application. Instead of using normal 
+    URLs, it will use the hash (#) portion of the URL to manage the "application URL".
+    Other than that, it is functionally the same as createBrowserRouter. 
+    
+
+    createMemoryRouter Instead of using the browsers history a memory router manages
+    it's own history stack in memory. It's primarily useful for testing and component
+    development tools like Storybook, but can also be used for running React Router
+    in any non-browser environment. 
+    
+    For more reference react router website.
+
+3)  What is the order of life cycle method calls in Class Based Components?
+=>  a) constructor()
+    b) render()
+    c) componentDidMount()
+    d) componentDidUpdate()
+    e) componentWillUnmount()
+
+4)  Why do we use componentDidMount?
+=>  componentDidMount is called after render hence it could be used after that 
+    initial render hence is also the best place for API calls.
+
+5)  Why do we use componentWillUnmount? Show with example.
+=>  The componentWillUnmount() method allows us to execute the React code when 
+    the component gets destroyed or unmounted from the DOM (Document Object Model).
+    This method is called during the Unmounting phase of the React Life-cycle 
+    i.e before the component gets unmounted.
+
+    All the cleanups such as invalidating timers, canceling network requests, or 
+    cleaning up any subscriptions that were created in componentDidMount() should 
+    be coded in the componentWillUnmount() method block.
+
+    Tip: Never call setState() in componentWillUnmount() method.
+
+6)  (Research) Why do we use super(props) in constructor?
+=>  It is used to access all the variables and methods of parent class i.e. by
+    invoking the parent class constructor.
+
+7)  (Research) Why can't we have the callback function of useEffect async?
+=>  useEffect expects it's callback function to return nothing or return a 
+    function (cleanup function that is called when the component is unmounted).
+    If we make the callback function as async, it will return a promise and the
+    promise will affect the clean-up function from being called.
