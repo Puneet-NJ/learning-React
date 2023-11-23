@@ -29,11 +29,11 @@ const Body = () => {
 			)
 				throw new Error("API Link Changed");
 			setRestaurentList(
-				json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+				json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
 					?.restaurants
 			);
 			setFilteredRes(
-				json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+				json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
 					?.restaurants
 			);
 		} catch (e) {
@@ -56,19 +56,20 @@ const Body = () => {
 	}
 
 	return (
-		<div id="body">
-			<div className="search">
+		<div id="body" className="mx-auto">
+			<div className="m-4 p-4">
 				{/* Adding search functionality into it? 
 					"https://www.youtube.com/watch?v=mZvKPtH9Fzo"
 				*/}
 				{/* <form> */}
 				<input
 					type="text"
-					className="search-name"
+					className="p-2 border border-solid border-black bg-gray-100"
 					placeholder="Enter resraurent"
 					onChange={(e) => setSearchRes2(e.target.value)}
 				></input>
 				<button
+					className="p-3 bg-lime-100 ml-2 mr-20 rounded-md"
 					onClick={() => {
 						const newRes = restaurentList.filter((res) => {
 							return res.info.name
@@ -82,14 +83,14 @@ const Body = () => {
 				</button>
 				{/* </form> */}
 				<button
-					className="sort-res"
+					className="p-2 bg-gray-200 rounded-md box-border hover:border border-black"
 					onClick={() => {
 						const Newrestaurents = restaurentList.filter(
-							(res) => res.info.avgRating >= 4
+							(res) => res.info.avgRating > 4
 						);
 						console.log(Newrestaurents);
 
-						setRestaurentList(Newrestaurents);
+						setFilteredRes(Newrestaurents);
 						// This will say restaurents = Newrestaurents
 					}}
 				>
@@ -97,7 +98,7 @@ const Body = () => {
 				</button>
 			</div>
 
-			<div className="res-container">
+			<div className="flex flex-wrap">
 				{/* How to add dynamic data to our componenets? -> props */}
 				{/* forEach instaead of map wouldn't work, why?
              bcoz => i have written jsx inside js, so babel wouldn't recignise until it's returned */}

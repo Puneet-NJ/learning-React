@@ -3,7 +3,9 @@ const MenuList = (props) => {
 
 	return (
 		<div className="cateogory-cards">
-			<h3>{cateogoryCard?.title}</h3>
+			<h3 className="font-bold text-xl underline m-2">
+				{cateogoryCard?.title}
+			</h3>
 			<ul>
 				{cateogoryCard?.itemCards?.map((item) => {
 					return (

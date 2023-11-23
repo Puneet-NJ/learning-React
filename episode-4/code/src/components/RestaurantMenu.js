@@ -18,12 +18,12 @@ const RestaurantMenu = () => {
 
 	// console.log(menuTitle);
 	return (
-		<div className="menu">
-			<h1>{name}</h1>
-			<p>
+		<div className="menu text-center ">
+			<h1 className="font-bold text-3xl underline m-2">{name}</h1>
+			<p className="mb-6">
 				{cuisines.join(", ")} - {costForTwoMessage}
 			</p>
-			<h2>Menu</h2>
+			<h2 className="font-bold text-2xl underline m-2">Menu</h2>
 			<div className="restaurant-list">
 				{menuTitle.map((menuGroup, index) => {
 					const cateogoryCards = menuGroup?.card?.card;

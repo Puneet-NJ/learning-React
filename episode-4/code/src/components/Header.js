@@ -16,25 +16,31 @@ const Header = () => {
 	// state_variable is updated.
 
 	return (
-		<div id="header">
+		<div id="header" className="flex justify-between items-center bg-lime-200">
 			<div className="logo-container">
-				<img className="logo" src={LOGO_URL} alt="Logo"></img>
+				<img
+					className="m-8 ml-16 w-24 rounded-full"
+					src={LOGO_URL}
+					alt="Logo"
+				></img>
 			</div>
 
-			<div className="nav-links">
-				<ul>
-					<li>Online Status: {useOnlineStatus() === true ? "✅" : "🔴"}</li>
-					<li>
+			<div>
+				<ul className="flex mx-16">
+					<li className="mx-3">
+						Online Status: {useOnlineStatus() === true ? "✅" : "🔴"}
+					</li>
+					<li className="mx-3">
 						<Link to="/">Home</Link>
 					</li>
-					<li>
+					<li className="mx-3">
 						<Link to="/about">About Us</Link>
 					</li>
-					<li>
+					<li className="mx-3">
 						<Link to="/contact">Contact Us</Link>
 					</li>
-					<li>Cart</li>
-					<li>
+					<li className="mx-3">Cart</li>
+					<li className="mx-3">
 						<Link to="/grocery">Grocery</Link>
 					</li>
 					<button

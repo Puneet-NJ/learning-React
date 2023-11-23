@@ -7,12 +7,12 @@ const RestaurentCard = (props) => {
 	const { deliveryTime } = sla;
 
 	return (
-		<div className="restaurent-card">
-			<img className="restaurent-img" src={CDN_URL + cloudinaryImageId}></img>
-			<h3 className="restaurent-name">{name}</h3>
-			<h4 className="cuisine">{cuisines.join()} </h4>
-			<div className="restaurent-rating">{avgRating} &#x2605;</div>
-			<div className="delivery-time">{deliveryTime}mins</div>
+		<div className="p-4 m-4 w-[200px] bg-gray-100">
+			<img className="w-full h-36 " src={CDN_URL + cloudinaryImageId}></img>
+			<h3 className="text-lg font-bold my-2">{name}</h3>
+			<h4 className="break-words my-1">{cuisines.join()} </h4>
+			<h4 className="font-bold my-2">{avgRating} &#x2605;</h4>
+			<h4 className="delivery-time">{deliveryTime}mins</h4>
 		</div>
 	);
 };
