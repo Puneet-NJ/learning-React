@@ -3,6 +3,7 @@ import restaurents from "../utils/mockData";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 // Feature: Want to sort restaurent by rating. eg: 4* > restaurents
 
@@ -44,10 +45,16 @@ const Body = () => {
 		fetchData();
 	}, []);
 
+	const onlineStatus = useOnlineStatus();
+	if (onlineStatus === false) {
+		return <h1>Looks like you are offline!!</h1>;
+	} // This wont work if put after conditional rendering, idk the reason
+
 	// Conditinal rendering
 	if (restaurentList.length === 0) {
 		return <Shimmer />;
 	}
+
 	return (
 		<div id="body">
 			<div className="search">
