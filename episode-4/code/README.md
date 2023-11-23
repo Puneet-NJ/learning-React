@@ -85,3 +85,15 @@
    it SPA, experiment it).
 
    In our React app sometimes we want to access the parameters of the current route in this case useParams hook comes into action.
+
+9. Maintain Single Responsibility Principle(SRE) but how? using custom hooks.
+
+10. To avoid bloating of your app you need do lazy loading
+
+Use lazy() method which takes a callback function in which we can use our
+import() method which takes the path of js file to be lazy loaded.
+
+ex: const File = lazy(() => import("path_of_file/component"));
+
+This alone wont work because loading this file takes some time hence react ignores
+it. So, we use something known as <Suspense fallback={loading_screen_render}></Suspense> to wrap around component to be lazy loaded.
