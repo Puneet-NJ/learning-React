@@ -1,7 +1,5 @@
 1. Restaurent app design
 
-/\*\*\*\*
-
 -
 - What I want to create?
 -
@@ -20,7 +18,7 @@
 - - Footer
 -      -Copyright
 -      -Links
-- \*/
+-
 
 2. Two types of exports:
    => default
