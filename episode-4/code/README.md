@@ -97,3 +97,12 @@ ex: const File = lazy(() => import("path_of_file/component"));
 
 This alone wont work because loading this file takes some time hence react ignores
 it. So, we use something known as <Suspense fallback={loading_screen_render}></Suspense> to wrap around component to be lazy loaded.
+
+Other names for lazy loading:
+
+- Chunking
+- Code splitting
+- Dynamic Bundling
+- lazy loading
+- on demand loading
+- dynamic import
