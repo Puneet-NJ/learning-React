@@ -1,0 +1,38 @@
+1)  When and why do we need lazy()?
+=>  Whenever we need to lazy(dynmically) load components onto our web we use lazy()
+    method
+
+    ex: const Component = lazy(() => import("path"));
+
+2)  What is suspense?
+=>  Suspense is a tag used to to handle the time delay between loading a dynamic/lazy 
+    component. Without this react would break and throw an error.
+
+    ex: <Suspense fallback={<Shimmer/>}>
+            <Component/>
+        </Suspense>
+
+3)  Why we got this error: "A component was suspended while responding to 
+    synchronous input. This will cause the UI to be replaced with a loading indicator.
+    To fix this, updates that suspend should be wrapped with start transition"? 
+    How does suspense fix this error?
+=>  This error occurs because of the absense of the <Suspense> tag while providing 
+    the route for a lazy component.
+
+    React handles this by suspending the lazy component until it is ready to be 
+    rendered and renders the fallback component and after the lazy component is 
+    ready it is rendered.
+
+4)  Advantages and Disadvantages of using this code splitting pattern?
+=>  Advantages:
+                We could make our app performant because code splitting allows us
+                to break our whole app into chuks and could be rendered based on need.
+
+    Disadvantages: 
+                    Certain components need to rendered from server which could take 
+                    some time.
+
+5)  When do we and why do we need suspense?
+=>  We use suspense while dynamically importing a component and we use suspense 
+    because react suspends the lazy component and renders the fallback component 
+    until lazy is loaded and after it has lazy will be added.
