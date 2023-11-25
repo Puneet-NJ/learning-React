@@ -24,7 +24,7 @@ const Body = () => {
 			const json = await api.json();
 
 			if (
-				!json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+				!json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
 					?.restaurants
 			)
 				throw new Error("API Link Changed");
@@ -69,7 +69,7 @@ const Body = () => {
 					onChange={(e) => setSearchRes2(e.target.value)}
 				></input>
 				<button
-					className="p-3 bg-lime-100 ml-2 mr-20 rounded-md"
+					className="p-3 bg-lime-100 ml-2 mr-20 rounded-md shadow-md hover:border border-black"
 					onClick={() => {
 						const newRes = restaurentList.filter((res) => {
 							return res.info.name

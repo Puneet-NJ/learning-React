@@ -16,7 +16,10 @@ const Header = () => {
 	// state_variable is updated.
 
 	return (
-		<div id="header" className="flex justify-between items-center bg-lime-200">
+		<div
+			id="header"
+			className="flex justify-between items-center bg-lime-200 shadow-xl"
+		>
 			<div className="logo-container">
 				<img
 					className="m-8 ml-16 w-24 rounded-full"
