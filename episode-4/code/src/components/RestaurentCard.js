@@ -2,7 +2,6 @@ import { CDN_URL } from "../utils/constants";
 
 const RestaurentCard = (props) => {
 	const { resName } = props;
-	// const { info } = resName;
 	const { cloudinaryImageId, name, cuisines, avgRating, sla } = resName.info;
 	const { deliveryTime } = sla;
 
@@ -16,6 +15,17 @@ const RestaurentCard = (props) => {
 			<h4 className="break-words my-1">{cuisines.join()} </h4>
 			<h4 className="font-bold my-2">{avgRating} &#x2605;</h4>
 			<h4 className="delivery-time">{deliveryTime}mins</h4>
+		</div>
+	);
+};
+
+export const withPromotedLabel = (RestaurentCard) => {
+	return (props) => (
+		<div>
+			<label className="bg-black text-white text-xs absolute rounded-lg p-2">
+				Promoted
+			</label>
+			<RestaurentCard {...props} />
 		</div>
 	);
 };

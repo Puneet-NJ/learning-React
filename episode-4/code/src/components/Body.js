@@ -1,9 +1,9 @@
-import RestaurentCard from "./RestaurentCard";
-import restaurents from "../utils/mockData";
+import RestaurentCard, { withPromotedLabel } from "./RestaurentCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { RESTAURANT_URL } from "../utils/constants";
 
 // Feature: Want to sort restaurent by rating. eg: 4* > restaurents
 
@@ -18,22 +18,20 @@ const Body = () => {
 
 	const fetchData = async () => {
 		try {
-			const api = await fetch(
-				"https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9715987&lng=77.5945627&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
-			);
+			const api = await fetch(RESTAURANT_URL);
 			const json = await api.json();
 
 			if (
-				!json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+				!json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
 					?.restaurants
 			)
 				throw new Error("API Link Changed");
 			setRestaurentList(
-				json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+				json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
 					?.restaurants
 			);
 			setFilteredRes(
-				json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
+				json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
 					?.restaurants
 			);
 		} catch (e) {
@@ -54,6 +52,8 @@ const Body = () => {
 	if (restaurentList.length === 0) {
 		return <Shimmer />;
 	}
+
+	const PromotedRes = withPromotedLabel(RestaurentCard);
 
 	return (
 		<div id="body" className="mx-auto">
@@ -107,7 +107,11 @@ const Body = () => {
 						key={restaurent?.info?.id}
 						to={"/restaurants/" + restaurent?.info?.id}
 					>
-						<RestaurentCard resName={restaurent} />
+						{restaurent?.info?.isOpen ? (
+							<PromotedRes resName={restaurent} />
+						) : (
+							<RestaurentCard resName={restaurent} />
+						)}
 					</Link>
 				))}
 			</div>
