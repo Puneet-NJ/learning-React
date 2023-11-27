@@ -106,3 +106,5 @@ Other names for lazy loading:
 - lazy loading
 - on demand loading
 - dynamic import
+
+11. Higher oredred components
