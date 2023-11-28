@@ -22,16 +22,16 @@ const Body = () => {
 			const json = await api.json();
 
 			if (
-				!json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+				!json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
 					?.restaurants
 			)
 				throw new Error("API Link Changed");
 			setRestaurentList(
-				json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+				json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
 					?.restaurants
 			);
 			setFilteredRes(
-				json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+				json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
 					?.restaurants
 			);
 		} catch (e) {
@@ -56,7 +56,7 @@ const Body = () => {
 	const PromotedRes = withPromotedLabel(RestaurentCard);
 
 	return (
-		<div id="body" className="mx-auto">
+		<div id="body" className=" p-4">
 			<div className="m-4 p-4">
 				{/* Adding search functionality into it? 
 					"https://www.youtube.com/watch?v=mZvKPtH9Fzo"
@@ -88,7 +88,7 @@ const Body = () => {
 						const Newrestaurents = restaurentList.filter(
 							(res) => res.info.avgRating > 4
 						);
-						console.log(Newrestaurents);
+						// console.log(Newrestaurents);
 
 						setFilteredRes(Newrestaurents);
 						// This will say restaurents = Newrestaurents
@@ -98,7 +98,7 @@ const Body = () => {
 				</button>
 			</div>
 
-			<div className="flex flex-wrap">
+			<div className="flex flex-wrap justify-center">
 				{/* How to add dynamic data to our componenets? -> props */}
 				{/* forEach instaead of map wouldn't work, why?
              bcoz => i have written jsx inside js, so babel wouldn't recignise until it's returned */}
