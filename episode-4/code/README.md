@@ -108,3 +108,5 @@ Other names for lazy loading:
 - dynamic import
 
 11. Higher oredred components
+
+12. Build Accordian
