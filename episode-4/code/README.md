@@ -110,3 +110,10 @@ Other names for lazy loading:
 11. Higher oredred components
 
 12. Build Accordian
+
+13. Controlled and uncontrolled components.
+    Controlled components: Components which can be controlled by parent components.
+    Uncontrolled components: Components which cannot be controlled by parent components.
+
+14. Lifting the state up.
+    Read about it.
