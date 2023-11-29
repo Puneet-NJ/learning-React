@@ -117,3 +117,24 @@ Other names for lazy loading:
 
 14. Lifting the state up.
     Read about it.
+
+15. If I want to have my states two layers inside a component then we can do  
+    using props but it becomes tidious as the nesting grows on and this is known as
+    props drilling.
+
+    This is could be handled using CONTEXT in React.
+    creating => createContext({key: value})
+    accessing => const {destructure} = useContext(contextName) // hook
+    accessing in class-based components =>
+    <contextName.Consumer>
+    {({ destructure }) => (
+      <h1 className="font-bold ">Username: {val}</h1>
+      )}
+    </contextName.Consumer>
+
+    Changing my context variables?
+    <contextName.Provider>
+    Components you want to have the new value
+    </contextName.Provider>
+
+    Build an input box wherein you are changing the context variables.
