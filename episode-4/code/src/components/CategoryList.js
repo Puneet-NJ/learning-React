@@ -1,16 +1,17 @@
 import { CDN_URL } from "../utils/constants";
 import { useState } from "react";
 
-const CategoryList = ({ category }) => {
-	// console.log(category);
-	const [showItems, setShowItems] = useState(false);
+const CategoryList = ({ category, showIndex, setShowIndex, index }) => {
+	console.log(typeof setShowIndex);
+	// const [showItems, setShowItems] = useState(false);
 
 	const title = category?.title;
 	const items = category?.itemCards;
 	// console.log(items);
 
+	// Homework feature: check props aswell
 	const itemsHandler = () => {
-		setShowItems(!showItems);
+		showIndex ? setShowIndex(null) : setShowIndex(index);
 	};
 
 	return (
@@ -19,13 +20,15 @@ const CategoryList = ({ category }) => {
 				className="cursor-pointer flex justify-between align-middle"
 				onClick={itemsHandler}
 			>
-				<span className="font-bold text-lg my-3 mx-5">{title}</span>
+				<span className="font-bold text-lg my-3 mx-5">
+					{title} ({items?.length})
+				</span>
 				<span className="my-3 mx-5">⬇️</span>
 			</div>
 			<div className="cl duration-1000">
 				{items.map(
 					(item) =>
-						showItems && (
+						showIndex && (
 							<div
 								key={item?.card?.info?.id}
 								className="m-5 p-5 flex justify-between border-b-2 border-gray-300 items-start "
