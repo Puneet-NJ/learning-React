@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import userLoginInfo from "../utils/userLoginInfo";
 
 const Header = () => {
 	const [loginBtn, setLoginBtn] = useState("Login");
@@ -14,6 +15,9 @@ const Header = () => {
 	// If [] is given => callback function is called only on initial render
 	// If [state_variable] is given => callback function is called only when the
 	// state_variable is updated.
+
+	const { userName } = useContext(userLoginInfo);
+	console.log(userName);
 
 	return (
 		<div
@@ -56,6 +60,7 @@ const Header = () => {
 					>
 						{loginBtn}
 					</button>
+					<li className="font-bold mx-4">Username: {userName}</li>
 				</ul>
 			</div>
 		</div>

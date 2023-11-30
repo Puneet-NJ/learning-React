@@ -41,7 +41,7 @@ const RestaurantMenu = () => {
 						category={category?.card?.card}
 						showIndex={showIndex === index ? true : false}
 						setShowIndex={(index) => {
-							console.log(index);
+							// console.log(index);
 							setShowIndex(index);
 						}}
 						index={index}

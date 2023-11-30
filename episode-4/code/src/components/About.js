@@ -2,6 +2,7 @@ import { Header } from "./Header";
 import User from "./User";
 import UserClass from "./UserClass";
 import React from "react";
+import userLoginInfo from "../utils/userLoginInfo";
 
 class About extends React.Component {
 	constructor(props) {
@@ -21,6 +22,13 @@ class About extends React.Component {
 			<>
 				{/* <Header /> */}
 				<div className="about">
+					<div>
+						<userLoginInfo.Consumer>
+							{({ userName }) => (
+								<h1 className="font-bold ">Username: {userName}</h1>
+							)}
+						</userLoginInfo.Consumer>
+					</div>
 					<h1>About</h1>
 					<h2>This is my about section</h2>
 

@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { Header } from "./components/Header";
 import Body from "./components/Body";
@@ -8,20 +8,36 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Hi from "./components/Hi";
+import userLoginInfo from "./utils/userLoginInfo";
 import Shimmer from "./components/Shimmer";
 // import Grocery from "./components/Grocery";
 
 const Grocery = lazy(() => import("./components/Grocery"));
 
 // App component
-const App = () => (
-	<div id="app">
-		<Header />
-		{/* Want to load children components based on path, How do I do that?
+const App = () => {
+	const [userNameLocal, setUserNameLocal] = useState("");
+	// Performed some authorization
+	useEffect(() => {
+		const user = "Puneet";
+		setUserNameLocal(user);
+	}, []);
+
+	return (
+		<userLoginInfo.Provider
+			value={{ userName: userNameLocal, setUserNameLocal }}
+		>
+			<div id="app">
+				{/* <userLoginInfo.Provider value={{ userName: "Patrick Bateman" }}> */}
+				<Header />
+				{/* </userLoginInfo.Provider> */}
+				{/* Want to load children components based on path, How do I do that?
 		 	Outlet component */}
-		<Outlet />
-	</div>
-);
+				<Outlet />
+			</div>
+		</userLoginInfo.Provider>
+	);
+};
 
 // Configuration for routes
 const appRouter = createBrowserRouter([

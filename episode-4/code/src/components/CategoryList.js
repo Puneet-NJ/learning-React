@@ -2,7 +2,7 @@ import { CDN_URL } from "../utils/constants";
 import { useState } from "react";
 
 const CategoryList = ({ category, showIndex, setShowIndex, index }) => {
-	console.log(typeof setShowIndex);
+	// console.log(typeof setShowIndex);
 	// const [showItems, setShowItems] = useState(false);
 
 	const title = category?.title;

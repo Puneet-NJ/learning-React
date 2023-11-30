@@ -1,9 +1,10 @@
 import RestaurentCard, { withPromotedLabel } from "./RestaurentCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import { RESTAURANT_URL } from "../utils/constants";
+import userLoginInfo from "../utils/userLoginInfo";
 
 // Feature: Want to sort restaurent by rating. eg: 4* > restaurents
 
@@ -15,6 +16,8 @@ const Body = () => {
 	const [searchRes2, setSearchRes2] = useState("");
 	const [filteredRes, setFilteredRes] = useState([]);
 	// console.log(useState());
+
+	const { userName, setUserNameLocal } = useContext(userLoginInfo);
 
 	const fetchData = async () => {
 		try {
@@ -96,6 +99,13 @@ const Body = () => {
 				>
 					Restaurents above 4 rating
 				</button>
+
+				<input
+					className="ml-10 border border-black p-2"
+					placeholder="Enter username"
+					value={userName}
+					onChange={(e) => setUserNameLocal(e.target.value)}
+				></input>
 			</div>
 
 			<div className="flex flex-wrap justify-center">

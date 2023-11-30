@@ -90,13 +90,13 @@
 
 10. To avoid bloating of your app you need do lazy loading
 
-Use lazy() method which takes a callback function in which we can use our
-import() method which takes the path of js file to be lazy loaded.
+    Use lazy() method which takes a callback function in which we can use our
+    import() method which takes the path of js file to be lazy loaded.
 
-ex: const File = lazy(() => import("path_of_file/component"));
+    ex: const File = lazy(() => import("path_of_file/component"));
 
-This alone wont work because loading this file takes some time hence react ignores
-it. So, we use something known as <Suspense fallback={loading_screen_render}></Suspense> to wrap around component to be lazy loaded.
+    This alone wont work because loading this file takes some time hence react ignores
+    it. So, we use something known as <Suspense fallback={loading_screen_render}></ Suspense> to wrap around component to be lazy loaded.
 
 Other names for lazy loading:
 
@@ -133,7 +133,7 @@ Other names for lazy loading:
     </contextName.Consumer>
 
     Changing my context variables?
-    <contextName.Provider>
+    <contextName.Provider value={{ userName: userNameLocal, setUserNameLocal }}>
     Components you want to have the new value
     </contextName.Provider>
 
