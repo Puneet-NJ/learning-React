@@ -138,3 +138,6 @@ Other names for lazy loading:
     </contextName.Provider>
 
     Build an input box wherein you are changing the context variables.
+
+16. REDUX.
+    Read
