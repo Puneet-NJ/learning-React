@@ -1,10 +1,13 @@
+import { useDispatch } from "react-redux";
 import { CDN_URL } from "../utils/constants";
 import { useState } from "react";
+import { addItem } from "../utils/cartSlice";
 
 const CategoryList = ({ category, showIndex, setShowIndex, index }) => {
 	// console.log(typeof setShowIndex);
 	// const [showItems, setShowItems] = useState(false);
 
+	const dispatch = useDispatch();
 	const title = category?.title;
 	const items = category?.itemCards;
 	// console.log(items);
@@ -14,8 +17,13 @@ const CategoryList = ({ category, showIndex, setShowIndex, index }) => {
 		showIndex ? setShowIndex(null) : setShowIndex(index);
 	};
 
+	const addItemHandler = (item) => {
+		dispatch(addItem(item));
+		console.log(item);
+	};
+
 	return (
-		<div className="bg-slate-200 w-6/12 m-auto mb-5 shadow-lg">
+		<div className="bg-slate-200 w-6/12 m-auto mb-5 shadow-lg rounded-md">
 			<div
 				className="cursor-pointer flex justify-between align-middle"
 				onClick={itemsHandler}
@@ -48,7 +56,10 @@ const CategoryList = ({ category, showIndex, setShowIndex, index }) => {
 										src={CDN_URL + item?.card?.info?.imageId}
 										className="rounded-lg w-[118px] h-[96px] mx-auto"
 									></img>
-									<button className="bg-white text-green-400 text-xs font-bold px-6 py-1 rounded-md shadow-lg relative bottom-5 border border-gray-300 hover:shadow-xl hover:scale-125 duration-150">
+									<button
+										className="bg-white text-green-400 text-xs font-bold px-6 py-1 rounded-md shadow-lg relative bottom-5 border border-gray-300 hover:shadow-xl hover:scale-125 duration-150"
+										onClick={() => addItemHandler(item)}
+									>
 										ADD
 									</button>
 								</div>

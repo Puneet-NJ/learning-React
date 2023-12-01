@@ -10,6 +10,8 @@ import RestaurantMenu from "./components/RestaurantMenu";
 import Hi from "./components/Hi";
 import userLoginInfo from "./utils/userLoginInfo";
 import Shimmer from "./components/Shimmer";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 // import Grocery from "./components/Grocery";
 
 const Grocery = lazy(() => import("./components/Grocery"));
@@ -24,18 +26,20 @@ const App = () => {
 	}, []);
 
 	return (
-		<userLoginInfo.Provider
-			value={{ userName: userNameLocal, setUserNameLocal }}
-		>
-			<div id="app">
-				{/* <userLoginInfo.Provider value={{ userName: "Patrick Bateman" }}> */}
-				<Header />
-				{/* </userLoginInfo.Provider> */}
-				{/* Want to load children components based on path, How do I do that?
+		<Provider store={appStore}>
+			<userLoginInfo.Provider
+				value={{ userName: userNameLocal, setUserNameLocal }}
+			>
+				<div id="app">
+					{/* <userLoginInfo.Provider value={{ userName: "Patrick Bateman" }}> */}
+					<Header />
+					{/* </userLoginInfo.Provider> */}
+					{/* Want to load children components based on path, How do I do that?
 		 	Outlet component */}
-				<Outlet />
-			</div>
-		</userLoginInfo.Provider>
+					<Outlet />
+				</div>
+			</userLoginInfo.Provider>
+		</Provider>
 	);
 };
 

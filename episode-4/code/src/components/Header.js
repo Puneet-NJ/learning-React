@@ -3,21 +3,24 @@ import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import userLoginInfo from "../utils/userLoginInfo";
+import { useSelector } from "react-redux";
 
 const Header = () => {
 	const [loginBtn, setLoginBtn] = useState("Login");
 
 	// Experimenting with useEffect
-	useEffect(() => {
-		console.log("useEffect called");
-	}, [loginBtn]);
+	// useEffect(() => {
+	// 	console.log("useEffect called");
+	// }, [loginBtn]);
 	// If no dependency array is given => callback function is called on every render.
 	// If [] is given => callback function is called only on initial render
 	// If [state_variable] is given => callback function is called only when the
 	// state_variable is updated.
 
 	const { userName } = useContext(userLoginInfo);
-	console.log(userName);
+	// console.log(userName);
+
+	const cartItems = useSelector((store) => store.cart.items);
 
 	return (
 		<div
@@ -46,7 +49,7 @@ const Header = () => {
 					<li className="mx-3">
 						<Link to="/contact">Contact Us</Link>
 					</li>
-					<li className="mx-3">Cart</li>
+					<li className="mx-3 font-bold">Cart({cartItems.length} items)</li>
 					<li className="mx-3">
 						<Link to="/grocery">Grocery</Link>
 					</li>
