@@ -7,7 +7,6 @@ const CategoryList = ({ category, showIndex, setShowIndex, index }) => {
 	// console.log(typeof setShowIndex);
 	// const [showItems, setShowItems] = useState(false);
 
-	const dispatch = useDispatch();
 	const title = category?.title;
 	const items = category?.itemCards;
 	// console.log(items);
@@ -17,9 +16,9 @@ const CategoryList = ({ category, showIndex, setShowIndex, index }) => {
 		showIndex ? setShowIndex(null) : setShowIndex(index);
 	};
 
+	const dispatch = useDispatch();
 	const addItemHandler = (item) => {
 		dispatch(addItem(item));
-		console.log(item);
 	};
 
 	return (

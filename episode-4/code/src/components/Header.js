@@ -21,6 +21,7 @@ const Header = () => {
 	// console.log(userName);
 
 	const cartItems = useSelector((store) => store.cart.items);
+	console.log(cartItems);
 
 	return (
 		<div
@@ -49,7 +50,9 @@ const Header = () => {
 					<li className="mx-3">
 						<Link to="/contact">Contact Us</Link>
 					</li>
-					<li className="mx-3 font-bold">Cart({cartItems.length} items)</li>
+					<li className="mx-3 font-bold">
+						<Link to="/cart">Cart({cartItems.length} items)</Link>
+					</li>
 					<li className="mx-3">
 						<Link to="/grocery">Grocery</Link>
 					</li>
