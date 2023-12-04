@@ -141,3 +141,19 @@ Other names for lazy loading:
 
 16. REDUX.
     Read
+
+17. Testing(for developers)
+    3 types:
+
+    - Unit testing
+    - Integration testing
+    - End-to-End testing
+
+    Setting up for testing:
+
+    - Install React Testing Library as devDependency
+    - Install jest(as RTL uses jest internally)
+    - Install babel
+    - Configure babel(This might conflict with existing babel-config file)
+    - so, disable Babel transpilation in Parcel by setting up .parcelrc file
+    - Run jest
