@@ -156,4 +156,14 @@ Other names for lazy loading:
     - Install babel
     - Configure babel(This might conflict with existing babel-config file)
     - so, disable Babel transpilation in Parcel by setting up .parcelrc file
-    - Run jest
+    - Run/Intilise Jest (npx jest --init)
+    - Install jsdom library
+
+      tests should be present in a folder by name: dunder tests dunder
+
+      the name for test file should be:
+
+      - fileName.test.js
+      - fileName.test.ts
+      - fileName.spec.js
+      - fileName.spec.ts

@@ -4,7 +4,7 @@ const RestaurentCard = (props) => {
 	const { resName } = props;
 	const { cloudinaryImageId, name, cuisines, avgRating, sla } = resName.info;
 	const { deliveryTime } = sla;
-	// console.log(cuisines);
+	// console.log(resName);
 
 	return (
 		<div className="p-4 mx-6 my-8 w-[200px] h-[400px] rounded-md bg-gray-100 shadow-lg">
@@ -25,6 +25,7 @@ const RestaurentCard = (props) => {
 };
 
 export const withPromotedLabel = (RestaurentCard) => {
+	console.log({ RestaurentCard });
 	return (props) => (
 		<div>
 			<label className="bg-black text-white text-xs relative top-[45px] left-7 rounded-lg p-2">

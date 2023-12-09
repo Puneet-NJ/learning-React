@@ -3,3 +3,6 @@
 /dist
 /tailwind.config.js
 /.postcssrc
+/coverage
+/jest.config.js
+/babel.config.js
