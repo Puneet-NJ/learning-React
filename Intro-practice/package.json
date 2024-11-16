@@ -1,0 +1,14 @@
+{
+  "name": "intro-practice",
+  "version": "1.0.0",
+  "description": "This is my practice react project",
+  "main": "main.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Puneet N J",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^2.13.0"
+  }
+}

@@ -13,7 +13,7 @@ const RestaurantMenu = () => {
 	if (restaurant === null) return <Shimmer />;
 
 	const { name, cuisines, costForTwoMessage } =
-		restaurant?.cards[0]?.card?.card?.info;
+		restaurant?.cards[1]?.card?.card?.info;
 
 	const menuSections =
 		restaurant?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
